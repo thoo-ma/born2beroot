@@ -1,0 +1,78 @@
+APT PACKAGES INSTALLES
+
+- apt install ufw
+- apt install sysstat (mpstat) --> monitoring CPU usage
+- apt install libpam-pwquality libpwquality-tools --> module pam
+- apt install sudo (man sudoers)
+- apt install net-tools (netstat) --> cf. screenshot `netstat.png`
+- apt install apparmor-utils (aa-genprof)
+
+__________________________________________________________
+
+COMMANDES UTILES
+
+passwords
+- pwscore
+- chage
+
+users & groups
+- id
+- groups
+- getent groups
+- adduser (vs useradd !!!)
+- deluser (vs userdel !!!)
+
+cron
+- crontab -l
+- service cron [start|stop|restart]
+- systemctl enable cron
+
+ufw
+- ufw status
+- ufw status verbose
+- ufw status numbered
+
+ssh
+- ssh-copy-id -i ~/.ssh/id_rsa.pub user@host
+
+apparmor
+- aa-status
+- aa-genprof script.sh
+
+__________________________________________________________
+
+DOSSIERS UTILES
+
+Users
+- /etc/hostname				 --> rename hostname (need reboot)
+- /etc/sudoers				 --> sudo policy
+
+PAM
+- /etc/pam.d/common-password --> password policy
+- /etc/login.defs
+
+cron
+- /var/spool/cron/crontabs/  --> cron jobs
+
+ssh
+- /etc/ssh/sshd_config		 --> PermitRootLogin no, UsePAM yes
+
+system
+- /proc/meminfo				 --> memory infos
+- /proc/stat				 --> CPU infos
+
+__________________________________________________________
+
+1. adduser
+2. addgroup evalated
+3. usermod -aG sudo user42 bob
+4. gpasswd --delete user group
+
+__________________________________________________________
+
+Connexion a root en ssh impossible a 2 titres
+1. car `PermitRootLogin no`
+2. car `PasswordAuthentication no` et pas de `authorized_keys` in /root/.ssh
+--> in /etc/ssh/sshd_config
+
+__________________________________________________________
