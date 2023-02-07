@@ -1,3 +1,6 @@
+OS: Debian 11 (Bullseye)
+__________________________________________________________
+
 INSTALLED APT PACKAGES
 
 - ufw
@@ -6,7 +9,6 @@ INSTALLED APT PACKAGES
 - sudo (man sudoers)
 - net-tools (netstat) --> cf. screenshot `netstat.png`
 - apparmor-utils (aa-genprof)
-
 __________________________________________________________
 
 USEFUL COMMANDS
@@ -39,41 +41,36 @@ apparmor
 - aa-status
 - aa-genprof script.sh
 
+To do during peer evaluation
+- adduser
+- addgroup evalated
+- usermod -aG sudo user42 bob
+- gpasswd --delete user group
 __________________________________________________________
 
 USEFUL FOLDERS
 
 Users
-- /etc/hostname				 --> rename hostname (need reboot)
-- /etc/sudoers				 --> sudo policy
+- /etc/hostname --> rename hostname (need reboot)
+- /etc/sudoers --> sudo policy
 
 PAM
 - /etc/pam.d/common-password --> password policy
 - /etc/login.defs
 
 cron
-- /var/spool/cron/crontabs/  --> cron jobs
+- /var/spool/cron/crontabs/ --> cron jobs
 
 ssh
-- /etc/ssh/sshd_config		 --> PermitRootLogin no, UsePAM yes
+- /etc/ssh/sshd_config --> PermitRootLogin no, UsePAM yes
 
 system
-- /proc/meminfo				 --> memory infos
-- /proc/stat				 --> CPU infos
-
-__________________________________________________________
-
-USEFUL COMMANDS
-1. adduser
-2. addgroup evalated
-3. usermod -aG sudo user42 bob
-4. gpasswd --delete user group
-
+- /proc/meminfo --> memory infos
+- /proc/stat --> CPU infos
 __________________________________________________________
 
 Login as root via ssh not allowed for two reasons:
-1. `PermitRootLogin no`
-2. `PasswordAuthentication no` and not `authorized_keys` into /root/.ssh
+- `PermitRootLogin no`
+- `PasswordAuthentication no` and not `authorized_keys` into /root/.ssh
 --> in /etc/ssh/sshd_config
-
 __________________________________________________________
